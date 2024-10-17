@@ -10,7 +10,7 @@ export const transactions = async (app: FastifyInstance) => {
   const stripe = new Stripe(processEnv.STRIPE_SECRET_KEY, {
     apiVersion: "2024-09-30.acacia",
   });
-  const mySite = "http://localhost:3000/";
+  const mySite = processEnv.ORIGIN_URL;
   const endpointSecret = processEnv.STRIPE_WEBHOOK_SECRET;
 
   let webhookResponse: any = null;
@@ -42,7 +42,7 @@ export const transactions = async (app: FastifyInstance) => {
         payment_method_types: ["card"],
         line_items: [
           {
-            price: "price_1Q9Xg8D3VTGYS353EDSjAa4H",
+            price: processEnv.STRIPE_PRICE_PREMIUM,
             quantity: 1,
           },
         ],

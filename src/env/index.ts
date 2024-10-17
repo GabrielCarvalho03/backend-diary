@@ -26,6 +26,7 @@ const EnvSchema = z.object({
   FIREBASE_AUTH_PROVIDER_X509_CERT_URL: z.string(),
   FIREBASE_CLIENT_X509_CERT_URL: z.string(),
   FIREBASE_UNIVERSE_DOMAIN: z.string(),
+  ORIGIN_URL: z.string(),
 });
 
 const _env = EnvSchema.safeParse(process.env);

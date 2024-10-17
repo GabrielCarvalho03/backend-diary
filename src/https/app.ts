@@ -6,12 +6,13 @@ import { Post } from "../routes/post";
 //@ts-ignore
 import fastifyMailer from "fastify-mailer";
 import { emailObjSend } from "../controllers/email-controller/emailObjSend";
+import { processEnv } from "../env";
 
 export const app = fastify();
 
 app
   .register(fastifyCors, {
-    origin: ["http://localhost:3000", "https://fron-end-diary.vercel.app"],
+    origin: ["http://localhost:3000", processEnv.ORIGIN_URL],
     methods: ["GET", "PUT", "POST", "DELETE"],
   })
   .after((err) => {
