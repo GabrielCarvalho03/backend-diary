@@ -12,7 +12,7 @@ export const app = fastify();
 
 app
   .register(fastifyCors, {
-    origin: ["http://localhost:3000", processEnv.ORIGIN_URL],
+    origin: ["http://localhost:3000", processEnv.ORIGIN_HTTP],
     methods: ["GET", "PUT", "POST", "DELETE"],
   })
   .after((err) => {
