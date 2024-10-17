@@ -11,7 +11,7 @@ export const app = fastify();
 
 app
   .register(fastifyCors, {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://fron-end-diary.vercel.app"],
     methods: ["GET", "PUT", "POST", "DELETE"],
   })
   .after((err) => {
