@@ -10,7 +10,7 @@ export const transactions = async (app: FastifyInstance) => {
   const stripe = new Stripe(processEnv.STRIPE_SECRET_KEY, {
     apiVersion: "2024-09-30.acacia",
   });
-  const mySite = processEnv.ORIGIN_URL;
+  const mySite = processEnv.ORIGIN_HTTP;
   const endpointSecret = processEnv.STRIPE_WEBHOOK_SECRET;
 
   let webhookResponse: any = null;
