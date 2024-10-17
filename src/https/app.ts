@@ -3,6 +3,7 @@ import fastifyCors from "@fastify/cors";
 import { transactions } from "../routes/transactions";
 import { Users } from "../routes/users";
 import { Post } from "../routes/post";
+//@ts-ignore
 import fastifyMailer from "fastify-mailer";
 import { emailObjSend } from "../controllers/email-controller/emailObjSend";
 
@@ -20,7 +21,6 @@ app
       console.log("CORS registrado com sucesso");
     }
   });
-//@ts-ignore
 app.register(fastifyMailer, emailObjSend);
 
 app.register(transactions);

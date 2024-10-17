@@ -9,6 +9,7 @@ const cors_1 = __importDefault(require("@fastify/cors"));
 const transactions_1 = require("../routes/transactions");
 const users_1 = require("../routes/users");
 const post_1 = require("../routes/post");
+//@ts-ignore
 const fastify_mailer_1 = __importDefault(require("fastify-mailer"));
 const emailObjSend_1 = require("../controllers/email-controller/emailObjSend");
 exports.app = (0, fastify_1.default)();
@@ -25,7 +26,6 @@ exports.app
         console.log("CORS registrado com sucesso");
     }
 });
-//@ts-ignore
 exports.app.register(fastify_mailer_1.default, emailObjSend_1.emailObjSend);
 exports.app.register(transactions_1.transactions);
 exports.app.register(users_1.Users);
