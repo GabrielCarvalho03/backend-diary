@@ -24,8 +24,8 @@ export const transactions = async (app: FastifyInstance) => {
           {
             price:
               plan == "basic"
-                ? "price_1Q82NZD3VTGYS353rG8gfv6G"
-                : "price_1Q9Xg8D3VTGYS353EDSjAa4H",
+                ? processEnv.STRIPE_PRICE_BASIC
+                : processEnv.STRIPE_PRICE_PREMIUM,
             quantity: 1,
           },
         ],
