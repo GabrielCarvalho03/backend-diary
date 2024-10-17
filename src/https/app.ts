@@ -20,6 +20,7 @@ app
       console.log("CORS registrado com sucesso");
     }
   });
+//@ts-ignore
 app.register(fastifyMailer, emailObjSend);
 
 app.register(transactions);

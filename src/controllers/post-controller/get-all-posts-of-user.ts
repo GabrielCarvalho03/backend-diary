@@ -20,6 +20,6 @@ export const GetAllPostsOfUser = async (
 
     return reply.status(200).send(posts);
   } catch (error) {
-    return reply.status(500).send({ error: error.message });
+    return reply.status(500).send({ error: error });
   }
 };

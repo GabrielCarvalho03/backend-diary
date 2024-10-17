@@ -92,8 +92,8 @@ export const transactions = async (app: FastifyInstance) => {
       event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
       const session = event.data.object as Stripe.Checkout.Session;
     } catch (err) {
-      console.error(`Erro de verificação do webhook: ${err.message}`);
-      return reply.status(400).send(`Webhook Error: ${err.message}`);
+      console.error(`Erro de verificação do webhook: ${err}`);
+      return reply.status(400).send(`Webhook Error: ${err}`);
     }
 
     if (event.type === "checkout.session.completed") {
@@ -104,7 +104,7 @@ export const transactions = async (app: FastifyInstance) => {
       setTimeout(() => {
         webhookResponse = null;
       }, 10000);
-      
+
       console.log("event", event.type);
       return reply.status(200).send({ received: true });
     }
